@@ -26,5 +26,3 @@ try:
        GPIO.output(portua1, 0)# portua1 eko Output/a desaktibatu
 except KeyboardInterrupt:
     GPIO.cleanup()
-finally:
-    GPIO.cleanup()
