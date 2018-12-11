@@ -9,7 +9,6 @@
 # robot.left() # Eskubiko motorrak segi eta ezkerrekoa geratu
 
 
-
 import Rpi.GPIO as GPIO
 from time import sleep 
 
@@ -24,5 +23,15 @@ try:
        GPIO.output(portua1, 1) # portua1 eko Output/a aktibatu
        sleep(5.0) # 5 segundu itxarongo ditu
        GPIO.output(portua1, 0)# portua1 eko Output/a desaktibatu
+       while i >= 10:
+         GPIO.output(portua1, 1)
+         time = 1
+         sleep(time)
+         time += 1
+         i += 1
+         #10 aldiz mugituko du robota. ALdi bakoitzean segundu bat gehiago itxaroten
+         
 except KeyboardInterrupt:
     GPIO.cleanup()
+finally:
+   GPIO.cleanup()
