@@ -19,8 +19,7 @@
 #GPIO.setup(portua2, GIPO.out(), initial = 0) # Portua2 Output gisa sortzen aktibatu gabe
 
 #try:
- #  while True:
- #      GPIO.output(portua1, 1) # portua1 eko Output/a aktibatu
+ #GPIO.output(portua1, 1) # portua1 eko Output/a aktibatu
   #     sleep(5.0) # 5 segundu itxarongo ditu
    #    GPIO.output(portua1, 0)# portua1 eko Output/a desaktibatu
 #except KeyboardInterrupt:
@@ -28,29 +27,30 @@
 
 
 import Rpi.GPIO as GPIO
-from time import sleep
+import time
 
 GPIO.setupmode(GPIO.BOARD)
 
 GPIO.setup(18, GPIO.OUT)# PWM-rako erabilgarriak diren bakarrak 18, 12, 13 19
 GPIO.setup(12, GPIO.OUT)
 
-m1 = GPIO.pwm(18, 40) #Motorraren portua eta bere frekuentzia jartzen. GPIO.PWM(Portua, frekuentzia)
-m2 = GPIO.pwn(12, 40)
+m1 = 18
+GPIO.pwm(18, 40) #Motorraren portua eta bere frekuentzia jartzen. GPIO.PWM(Portua, frekuentzia)
+m2 = 12
+GPIO.pwn(12, 40)
 motorrak[m1, m2]
-
 
 # motorren "duty cicle" = 50. %50 eko potentziarekin = 3.3V / 2
 motorrak.start(50)
-
-try:
-    while x != 100:
-        x = 75
-        motorrak.ChangeDutyCicle(x) # Motorren "duty cicle" = 75. %75 eko potentzian = 3.3V * 0,75
-        x += 1 # Motorren "duty cicle"-a ziklo bakoitzena 1 igoko da. Beraz, abiadura gero eta azkarrago
-
-finally:
-    cleanup()
+x = 0
 
 try:
     while True:
+        if x != 100:
+         x = 75
+         motorrak.ChangeDutyCicle(x) # Motorren "duty cicle" = 75. %75 eko potentzian = 3.3V * 0,75
+         x += 1 # Motorren "duty cicle"-a ziklo bakoitzena 1 igoko da. Beraz, abiadura gero eta azkarrago
+        else:
+         x = 0 
+finally:
+    cleanup()
