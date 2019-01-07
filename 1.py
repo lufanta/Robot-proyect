@@ -34,16 +34,16 @@ GPIO.setupmode(GPIO.BOARD)
 GPIO.setup(18, GPIO.OUT)# PWM-rako erabilgarriak diren bakarrak 18, 12, 13 19
 GPIO.setup(12, GPIO.OUT)
 
-m1 = 18
-GPIO.pwm(18, 40) #Motorraren portua eta bere frekuentzia jartzen. GPIO.PWM(Portua, frekuentzia)
-m2 = 12
-GPIO.pwn(12, 40)
+m1 = input(str(´Lehen motorraren GPIO portua´))
+GPIO.pwm(m1, 40) #Motorraren portua eta bere frekuentzia jartzen. GPIO.PWM(Portua, frekuentzia)
+m2 = input(str(´Lehen motorraren GPIO portua´))
+GPIO.pwn(m2, 40)
 motorrak[m1, m2]
 
 # motorren "duty cicle" = 50. %50 eko potentziarekin = 3.3V / 2
 motorrak.start(50)
-x = 0
 
+x = 0
 try:
     while True:
         if x != 100:
@@ -52,5 +52,7 @@ try:
          x += 1 # Motorren "duty cicle"-a ziklo bakoitzena 1 igoko da. Beraz, abiadura gero eta azkarrago
         else:
          x = 0 
+except KeyInterrumpt:
+     cleanup()
 finally:
     cleanup()
