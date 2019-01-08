@@ -1,6 +1,9 @@
 import random
 import time
 from threading import Thread
+from GPIO import RPI.gpio as RPI
+
+RPI.
 
 
 class WaitForUserInput(Thread):
