@@ -42,7 +42,7 @@ motorrak[m1, m2]
 
 # motorren "duty cicle" = 50. %50 eko potentziarekin = 3.3V / 2
 motorrak.start(50)
-
+https://business.tutsplus.com/es/tutorials/controlling-dc-motors-using-python-with-a-raspberry-pi--cms-20051
 x = 0
 try:
     while True:
