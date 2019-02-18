@@ -63,3 +63,5 @@ emotor1 = 22
 amotor2 = 23
 bmotor2 = 21
 emotor = 19
+
+https://business.tutsplus.com/es/tutorials/controlling-dc-motors-using-python-with-a-raspberry-pi--cms-20051
