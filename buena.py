@@ -18,10 +18,10 @@ GPIO.setup(motorA, GPIO.OUT)
 GPIO.setup(motorB, GPIO.OUT)
 
 #Aurrera
-GPIO.output(Motor1A, 1)
-GPIO.output(Motor1B, 0)
-GPIO.output(Motor1E, 1)
+GPIO.output(Motor1A, True)
+GPIO.output(Motor1B, False)
+GPIO.output(Motor1E, True)
 
-GPIO.output(Motor2A, 1)
-GPIO.output(Motor2B, 0)
-GPIO.output(Motor2E, 1)
+GPIO.output(Motor2A, True)
+GPIO.output(Motor2B, False)
+GPIO.output(Motor2E, True)
